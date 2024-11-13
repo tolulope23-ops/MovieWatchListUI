@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/api/v3/movie'; // replace with actual API endpoint
+const apiUrl = 'https://moviewatchlistapi.onrender.com/api/v3/movie';
 
 // DOM elements
 const movieList = document.getElementById('movieList');
@@ -8,6 +8,7 @@ const movieForm = document.getElementById('movieForm');
 const addMovieBtn = document.getElementById('addMovieBtn');
 
 let currentMovie = null;
+
 // Functions
 async function fetchMovies() {
   try {
@@ -77,8 +78,7 @@ async function addOrUpdateMovie(event) {
 async function editMovie(id) {
   currentMovie = id;
   openModal();
-  console.log("tolulope")
-  addOrUpdateMovie();
+  fetchMovies();
 }
 async function deleteMovie(id) {
   await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
@@ -91,7 +91,6 @@ async function deleteMovie(id) {
 addMovieBtn.addEventListener('click', openModal);
 closeModal.addEventListener('click', closeModalFunc);
 movieForm.addEventListener('submit', addOrUpdateMovie);
-movieForm.addEventListener('click', editMovie)
 
 // Initial Fetch
 fetchMovies();

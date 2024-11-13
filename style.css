@@ -72,13 +72,22 @@
     background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    /* border: 1px solid white; */
   }
   
   .modal-content {
     background-color: #222;
     padding: 20px;
     border-radius: 5px;
-    width: 300px;
+    width: 50%;
+    height:50%;
+    /* border:1px solid red; */
+    text-align: center;
+  }
+
+  .modal-content h2{
+    /* text-align: center; */
+    margin-bottom: 5px;
   }
   
   .close {
@@ -87,4 +96,39 @@
     right: 10px;
     color: #fff;
     cursor: pointer;
+  }
+
+  #movieForm{
+    width:80%;
+    /* border: 1px solid white; */
+    margin: auto;
+  }
+
+  #movieForm input{
+    width:75%;
+    margin:.4em 0;
+    padding:.5em;
+  }
+
+
+#movieForm label{
+  width:78%;
+  margin:0 3.9em;
+  display: block;
+  /* border:1px solid greenyellow; */
+  align-items: center;
+  /* margin-top: -10em; */
+}
+
+#watched{
+  width: unset;
+  margin-right: 6em;
+  padding:unset;
+  /* border: 1px solid red; */
+}
+
+  #save{
+    display: flex;
+    justify-self: center;
+    margin-top: .5em;
   }

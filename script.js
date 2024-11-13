@@ -6,8 +6,8 @@ const movieModal = document.getElementById('movieModal');
 const closeModal = document.querySelector('.close');
 const movieForm = document.getElementById('movieForm');
 const addMovieBtn = document.getElementById('addMovieBtn');
-let currentMovie = null;
 
+let currentMovie = null;
 // Functions
 async function fetchMovies() {
   try {
@@ -70,7 +70,6 @@ async function addOrUpdateMovie(event) {
     });
   }
   closeModalFunc();
-  fetchMovies();
 }
 
 async function deleteMovie(id) {
@@ -78,11 +77,7 @@ async function deleteMovie(id) {
   fetchMovies();
 }
 
-async function editMovie(id) {
-  currentMovie = id;
-    openModal();
-  // Fetch and populate modal with movie data for editing
-}
+
 
 // Event Listeners
 addMovieBtn.addEventListener('click', openModal);

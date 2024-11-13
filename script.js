@@ -53,9 +53,11 @@ async function addOrUpdateMovie(event) {
   const released = document.getElementById('released').value;
   const watched = document.getElementById('watched').checked;
   const movieData = { title, genre, released, watched };
+  
 
   // Add / Update logic
   if(currentMovie){
+    console.log(currentMovie);
     await fetch(`${apiUrl}/${currentMovie}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -72,6 +74,12 @@ async function addOrUpdateMovie(event) {
   closeModalFunc();
 }
 
+async function editMovie(id) {
+  currentMovie = id;
+  openModal();
+  console.log("tolulope")
+  addOrUpdateMovie();
+}
 async function deleteMovie(id) {
   await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
   fetchMovies();
@@ -83,6 +91,7 @@ async function deleteMovie(id) {
 addMovieBtn.addEventListener('click', openModal);
 closeModal.addEventListener('click', closeModalFunc);
 movieForm.addEventListener('submit', addOrUpdateMovie);
+movieForm.addEventListener('click', editMovie)
 
 // Initial Fetch
 fetchMovies();
